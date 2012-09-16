@@ -35,7 +35,6 @@ public class Locales {
 			m.put(l.getLanguage() + "-" + l.getCountry(), l);
 		}
 		sysoMapPrinter.print(m);
-
 	}
 
 }
