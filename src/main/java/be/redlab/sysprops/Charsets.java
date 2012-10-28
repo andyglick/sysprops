@@ -12,9 +12,12 @@
  */
 package be.redlab.sysprops;
 
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.SortedMap;
 
 import be.redlab.sysprops.printer.SysoMapPrinter;
 
@@ -22,13 +25,10 @@ import be.redlab.sysprops.printer.SysoMapPrinter;
  * @author redlab
  *
  */
-public class Locales {
+public class Charsets {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
-		new Locales().print();
+		new Charsets().print();
 	}
 
 	/**
@@ -36,14 +36,17 @@ public class Locales {
 	 */
 	public void print() {
 		SysoMapPrinter sysoMapPrinter = new SysoMapPrinter();
-		Locale[] availableLocales = Locale.getAvailableLocales();
-		Map<String, String> m = new HashMap<String, String>();
-		System.out.println("Locale_Country codes      | country (language) in English and in it's own locale");
-		for (Locale l : availableLocales) {
-			m.put(l.getLanguage() + "_" + l.getCountry(), l.getDisplayCountry()
-					+ " (" + l.getDisplayLanguage() + ") or (" + l.getDisplayCountry(l) + " (" + l.getDisplayLanguage(l) + "))");
+		SortedMap<String, Charset> availableLocales = Charset.availableCharsets();
+		Map<String, Object> m = new HashMap<String, Object>();
+		for (final Entry<String, Charset> l : availableLocales.entrySet()) {
+			final Charset value = l.getValue();
+			m.put(l.getKey(), new Object() {
+				@Override
+				public String toString() {
+					return "Displayname: " + value.displayName() + " | Aliases: " + Arrays.toString(value.aliases().toArray());
+				}
+			});
 		}
 		sysoMapPrinter.print(m);
 	}
-
 }

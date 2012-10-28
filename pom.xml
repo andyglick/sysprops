@@ -14,7 +14,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>be.redlab.sysprops.SystemProperties</mainClass>
+							<mainClass>be.redlab.sysprops.Runner</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
