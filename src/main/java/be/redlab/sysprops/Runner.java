@@ -19,20 +19,35 @@ package be.redlab.sysprops;
 public class Runner {
 
 	/**
+	 *
+	 */
+	private static final String CHARSETS = "charsets";
+	/**
+	 *
+	 */
+	private static final String PROPS = "props";
+	/**
+	 *
+	 */
+	private static final String LOCALES = "locales";
+
+	/**
 	 * @param args
 	 * @throws InterruptedException
 	 */
 	public static void main(final String[] args) throws InterruptedException {
 		if (null != args && args.length > 0) {
+			boolean printhelp = true;
 			for (String arg : args) {
-				if ("locales".equals(arg)) {
+				if (LOCALES.equals(arg)) {
 					printLocales();
-				} else if ("props".equals(arg)) {
+				} else if (PROPS.equals(arg)) {
 					printSystemProperties();
-				} else if ("charsets".equals(arg)) {
+				} else if (CHARSETS.equals(arg)) {
 					printCharsets();
-				} else {
+				} else if (printhelp) {
 					printHelp();
+					printhelp = false;
 				}
 			}
 		} else {
@@ -47,10 +62,10 @@ public class Runner {
 				.append(System.getProperty("line.separator"))
 				.append("SysProps by redlab. Simple and stupid. But sometimes usefull. See what Java is seeing.")
 				.append(System.getProperty("line.separator")).append("commands: ").append(System.getProperty("line.separator"))
-				.append("locales").append(System.getProperty("line.separator")).append("\tprints the locales know to the Java Process")
-				.append(System.getProperty("line.separator")).append("props").append(System.getProperty("line.separator"))
+				.append(LOCALES).append(System.getProperty("line.separator")).append("\tprints the locales know to the Java Process")
+				.append(System.getProperty("line.separator")).append(PROPS).append(System.getProperty("line.separator"))
 				.append("\tprints system properties and environment properties").append(System.getProperty("line.separator"))
-				.append("charsets").append(System.getProperty("line.separator"))
+				.append(CHARSETS).append(System.getProperty("line.separator"))
 				.append("\tprints all to Java knonw Charset and their aliasses").append(System.getProperty("line.separator"))
 				.append("run without arguments prints all of them.").append(System.getProperty("line.separator"))
 				.append("Pipe the output to a file or to your screen with more or less, it can sometimes be a long list.");
