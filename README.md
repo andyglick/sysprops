@@ -3,6 +3,12 @@ sysprops
 
 Sysprops is a simple application to print out Java System and Environment properties.
 
+What's inside
+=======
+* A System and Environment Properties printer.
+* A Locale printer, printing all available locales.
+
+
 Why?
 =======
 You could ask why would you share this stupid app with the world?
@@ -12,9 +18,7 @@ For those, like me, who always forget the wide range of keys that the System Pro
 
 How to Run?
 =======
-Import it in your IDE and run it there.
-
-I'll maybe add main-class to the jar manifest later.
+Import it in your IDE and run it there. Or run it as standalone java application. 
 
 
 Have Fun
