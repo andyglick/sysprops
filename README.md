@@ -22,5 +22,7 @@ How to Run?
 =======
 Import it in your IDE and run it there. Or run it as standalone java application. ( java -jar nameofjar ) You can add arguments to that to run a specific printer.
 
+In your IDE you can just run the Charsets, Locales or SystemProperties classes as Java Main class.
+
 
 Have Fun
