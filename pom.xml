@@ -7,6 +7,7 @@
 	<name>System Properties</name>
 	<description>System Info Project, because I don't know the default properties by hearth</description>
 	<build>
+		<finalName>sysprops</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
